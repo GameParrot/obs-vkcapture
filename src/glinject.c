@@ -967,6 +967,8 @@ static bool gl_init(void *display, void *surface)
 
 static void gl_capture(void *display, void *surface)
 {
+    glDisable(GL_SCISSOR_TEST);
+
     capture_update_socket();
 
     if (capture_should_stop()) {
