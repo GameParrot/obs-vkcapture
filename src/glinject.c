@@ -789,9 +789,9 @@ static void gl_copy_backbuffer(GLuint dst)
 
 static void gl_shtex_capture()
 {
-    bool scissorEnabled = glIsEnabled(GL_SCISSOR_TEST);
+    bool scissorEnabled = gl_f.IsEnabled(GL_SCISSOR_TEST);
     if (scissorEnabled) {
-        glDisable(GL_SCISSOR_TEST);
+        gl_f.Disable(GL_SCISSOR_TEST);
     }
     GLboolean last_srgb;
     GLint last_read_fbo;
@@ -814,7 +814,7 @@ static void gl_shtex_capture()
         gl_f.Disable(GL_FRAMEBUFFER_SRGB);
     }
     if (scissorEnabled) {
-        glEnable(GL_SCISSOR_TEST);
+        gl_f.Enable(GL_SCISSOR_TEST);
     }
 }
 
